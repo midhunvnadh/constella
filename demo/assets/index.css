@@ -1,0 +1,107 @@
+*{
+    font-family: 'ubuntu';/* The Runtime should replace this with the system font*/
+    font-weight: 100;
+    transition:all .3s ease-in-out;
+}
+body{
+    margin: 0;
+    background: url("pexels-hristo-fidanov-1252890.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body .window-holder{
+    min-height: 100vh;
+    background-color: rgba(0,0,0,0.6)
+
+}
+body .window-holder .front-header{
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    width: 100%;
+    position: relative;
+    background: transparent;
+    padding-top: 10px;
+}
+body .window-holder .front-header input{
+    height: 30px;
+    width: 80vw;
+    border-radius: 100px;
+    border:1px solid #000;
+    outline: none;
+    padding: 5px 40px;
+    padding-left: 60px;
+    font-size: 20px;
+}
+body .window-holder .search-bar {
+    position: relative;
+}
+body .window-holder .search-bar .logo-holder{
+    position: absolute;
+    top: -4px;
+    left:-2px;
+    /* The below attributes are supposed to be like this*/
+    /* It is suppossed to be bigger than the text input*/
+    /* Change it if you can make it better*/
+    width: 50px;
+    height: 50px;
+}
+body .window-holder .search-bar .logo-holder img{
+        animation:spin 3s linear infinite;
+        height: 100%;
+        width: 100%;
+}
+@keyframes spin{
+    0%{ transform:rotate(-45deg)}
+    50%{transform:rotate(0deg)}
+    100%{transform:rotate(-45deg)}
+}
+.sch-rls{
+    padding: 50px 60px;
+}
+.rlt-name{
+    color: #f3f3f3;
+}
+.sch-rls .web-results .results{
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.sch-rls .web-results .results .result{
+    width: 100%;
+    min-height: 100px;
+    background:transparent;
+    padding: 18px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.sch-rls .web-results .results .result:hover{
+    background:#eee;
+}
+.sch-rls .web-results .results .result:hover strong{
+    color:#000
+}
+.sch-rls .web-results .results .result:hover .bread-crumbs{
+    font-weight: 400;
+}
+.sch-rls .web-results .results .result:hover p{
+    color: #000;
+}
+.sch-rls .web-results .results p{
+    color: #f3f3f3;
+}
+.sch-rls .web-results .results .result strong{
+    color: #f3f3f3;
+    font-weight: 400;
+}
+.sch-rls .web-results .results .result span{
+    color: yellowgreen;
+    display: block;
+    margin-top: 6px;
+}
+.sch-rls .rlt-name{
+    font-weight: 100;
+}

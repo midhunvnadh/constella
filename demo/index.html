@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Constella Web Demo</title>
+        <link rel="stylesheet" href="assets/index.css"/>
+    </head>
+    <body>
+        <section class="window-holder">
+            <div class="front-header">
+                <div class="search-bar">
+                    <input type = "text" placeholder="Search with Constella"/>
+                    <div class="logo-holder">
+                        <img src = "assets/constella-icon-100x100.svg"/>
+                    </div>
+                </div>
+            </div>
+            <div class = "sch-rls">
+                <!--Show the Web Results first if the user is not searching for a native app-->
+                <div class="web-results">
+                    <h2 class="rlt-name">Search Engine Results</h2>
+                    <div class="results">
+                        <!--Update the search results from DuckDuckGo here-->
+                        <!--Currently the results are added by index.js-->
+                    </div>
+                </div>
+                <!--Show results from the Computer Apps-->
+            </div>
+        </section>
+        <script src = "assets/index.js"></script>
+    </body>
+</html>
