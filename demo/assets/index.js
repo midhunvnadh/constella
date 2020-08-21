@@ -5,3 +5,21 @@ const loadSearchResults = () => {
         appendTo.innerHTML += theResult
 }
 loadSearchResults();
+
+var clicked1 = false;
+document.querySelector(".sch-rls .web-results .rlt-header .showl-btn .status").addEventListener("click", function(){
+    var results = document.querySelectorAll(".sch-rls .web-results .results .result:hover > p, .sch-rls .web-results .results .result")
+    var resultSize = results.length
+    if(clicked1){
+        this.setAttribute("data-status", "0");
+        for(var i = 0; i < resultSize; i++)
+            results[i].classList.remove("show-dsc")
+        clicked1 = false;
+    }
+    else{
+        this.setAttribute("data-status", "1");
+        for(var i = 0; i < resultSize; i++)
+            results[i].classList.add("show-dsc")
+        clicked1 = true;
+    }
+});

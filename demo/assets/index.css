@@ -3,16 +3,39 @@
     font-weight: 100;
     transition:all .3s ease-in-out;
 }
+::-webkit-scrollbar{width: 3px;}
+::-webkit-scrollbar-track{visibility: hidden;}
+::-webkit-scrollbar-thumb{visibility: hidden;}
+
 body{
     margin: 0;
     background: url("pexels-hristo-fidanov-1252890.jpg");
+    /* This isn't actually a background when we 
+    *  Deploy this.
+    *  You might need not care too much about this background.
+    *  When we deploy this, the background will be transparent
+    *  so that the desktop wallpaper can be used and doesn't despend
+    *  on the html dom.
+    */
     background-repeat: no-repeat;
     background-size: cover;
+    overflow-y: scroll;
 }
 body .window-holder{
     min-height: 100vh;
     background-color: rgba(0,0,0,0.6)
-
+}
+body .window-holder:before{
+    content: '';
+    position: absolute;
+    top:0;
+    right: 0;
+    left:0;
+    min-height: 100vh;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    z-index: -1;
+    background: rgba(0,0,0,0.5);
 }
 body .window-holder .front-header{
     display: flex;
@@ -71,7 +94,7 @@ body .window-holder .search-bar .logo-holder img{
 }
 .sch-rls .web-results .results .result{
     width: 100%;
-    min-height: 100px;
+    min-height: 50px;
     background:transparent;
     padding: 18px 20px;
     cursor: pointer;
@@ -87,11 +110,18 @@ body .window-holder .search-bar .logo-holder img{
 .sch-rls .web-results .results .result:hover .bread-crumbs{
     font-weight: 400;
 }
-.sch-rls .web-results .results .result:hover p{
-    color: #000;
-}
 .sch-rls .web-results .results p{
     color: #f3f3f3;
+    height: 0;
+    overflow: hidden;
+}
+.sch-rls .web-results .results .result.show-dsc > p{
+    color: #f3f3f3;
+    height: 60px;
+}
+.sch-rls .web-results .results .result:hover > p{
+    color: #000;
+    height: 60px;
 }
 .sch-rls .web-results .results .result strong{
     color: #f3f3f3;
@@ -102,6 +132,46 @@ body .window-holder .search-bar .logo-holder img{
     display: block;
     margin-top: 6px;
 }
-.sch-rls .rlt-name{
+.sch-rls .rlt-header .rlt-name{
     font-weight: 100;
+}
+.sch-rls .web-results .rlt-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sch-rls .web-results .rlt-header .showl-btn{
+    color: #f3f3f3;
+}
+.sch-rls .web-results .rlt-header .showl-btn .status{
+    min-height: 30px;
+    min-width: 60px;
+    border: 2px solid #eee;
+    display:inline-block;
+    border-radius: 100px;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+}
+.sch-rls .web-results .rlt-header .showl-btn .status[data-status="1"]{
+    border: 2px solid yellowgreen
+}
+.sch-rls .web-results .rlt-header .showl-btn .status[data-status="1"] .status-block{
+    right:2px;
+    top:2px;
+    left:unset;
+    background: yellowgreen;
+}
+.sch-rls .web-results .rlt-header .showl-btn{
+    transform:scale(0.9);
+}
+.sch-rls .web-results .rlt-header .showl-btn .status .status-block{
+    display: block;
+    position: absolute;
+    min-height: 25px;
+    min-width: 25px;
+    background: #f3f3f3;
+    border-radius: 100%;
+    left:2px;
+    top:2px;
 }
