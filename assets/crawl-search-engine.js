@@ -9,7 +9,7 @@ const crawlPage = (engineToUse, keyword) => {
             loadSearchResults(json);
         },
         error:function(){
-            alert("Error");
+            
         }      
    });
 }
