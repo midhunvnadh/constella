@@ -92,6 +92,9 @@ body .window-holder .search-bar .logo-holder img{
     align-items: center;
     flex-wrap: wrap;
 }
+.sch-rls .web-results .results a{
+    text-decoration:none;
+}
 .sch-rls .web-results .results .result{
     width: 100%;
     min-height: 50px;
@@ -115,11 +118,11 @@ body .window-holder .search-bar .logo-holder img{
     height: 0;
     overflow: hidden;
 }
-.sch-rls .web-results .results .result.show-dsc > p{
+.sch-rls .web-results .results .result.show-dsc a > p{
     color: #f3f3f3;
     height: 60px;
 }
-.sch-rls .web-results .results .result:hover > p{
+.sch-rls .web-results .results .result:hover a > p{
     color: #000;
     height: 60px;
 }

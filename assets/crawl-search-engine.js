@@ -13,3 +13,11 @@ const crawlPage = (engineToUse, keyword) => {
         }      
    });
 }
+const loadSearchResults = ($results) => {
+    $appendTo = $(".web-results .results")
+    $appendTo.html("");//Reset the container before loading another result
+    for(var result = 0; result < $results.length; result++){
+        var theResult = '<span class = "result"><a href = "' + $results[result].link + '"><strong>' + $results[result].title + '</strong><span class="bread-crumbs">' + $results[result].bread + '</span><p>' + $results[result].desc + '</p></a></span>'
+        $appendTo.append(theResult); 
+    }
+}

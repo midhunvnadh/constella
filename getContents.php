@@ -45,7 +45,7 @@ function googleResults($domResults){
 	$ajax = array();
 	$push_to_array = array();
 	for($i = 0; $i < sizeof($title);$i++){
-		$push_to_array = array("link" => strval($link[$i]->parent()->href), "title" => strval($title[$i]->plaintext), "bread" => strval($bread[$i]->plaintext), "desc" => strval($desc[$i]->plaintext));		
+		$push_to_array = array("link" => substr(strval($link[$i]->parent()->href), 7), "title" => strval($title[$i]->plaintext), "bread" => strval($bread[$i]->plaintext), "desc" => strval($desc[$i]->plaintext));		
 		$ajax[] = $push_to_array;
 		$push_to_array = array();
 	}
