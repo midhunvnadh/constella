@@ -1,0 +1,3 @@
+phpmbstring > 5.3
+php > 5.3
+apache2 (port 999, /var/www/constella)

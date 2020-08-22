@@ -4,8 +4,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Constella Web Demo</title>
         <link rel="stylesheet" href="assets/index.css"/>
+        <script type="text/javascript" src="assets/jquery-3.5.1.slim.min.js"></script>
+        <script type="text/javascript" src = "./assets/index.js"></script>
+        <script type="text/javascript" src="assets/crawl-search-engine.js" ></script>
     </head>
     <body>
+        <div class="hidden" style="position:absolute;z-index: 99;">
+        </div>
         <section class="window-holder">
             <div class="front-header">
                 <div class="search-bar">
@@ -23,7 +28,7 @@
                             Search Engine results
                         </h2>
                         <span class="showl-btn">
-                            <label>Show Page Description </label>
+                            <label>Show Page Description &nbsp;</label>
                             <span class="status" data-status = "0">
                                 <span class = "status-block"></span>
                             </span>
@@ -37,6 +42,5 @@
                 <!--Show results from the Computer Apps-->
             </div>
         </section>
-        <script src = "assets/index.js"></script>
     </body>
 </html>
