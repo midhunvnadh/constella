@@ -14,23 +14,26 @@ const showPageDesc = (elem) => {
 }
 
 $(document).ready(function(){
-    crawlPage("google", "James Bond");
+    $defaultSearchEngine = "bing";
+    // Replace above on time of search with
+    // the one modifed from System Settings
+    crawlPage($defaultSearchEngine, "James Bond");
     $(".sch-rls .web-results .rlt-header .showl-btn .status").click(
         function(){
             showPageDesc($(this));
         }
     );
     var $typingTimer;
-    var $doneTypingInterval = 1000;
+    var $doneTypingInterval = 800;
     var $input = $('.front-header .search-bar input');
     $input.on('keyup', function () {
         clearTimeout($typingTimer);
-        $typingTimer = setTimeout(doneTyping, $doneTypingInterval, $input);
+        $typingTimer = setTimeout(doneTyping, $doneTypingInterval, $defaultSearchEngine ,$input);
     });
     $input.on('keydown', function () {
         clearTimeout($typingTimer);
     });
-    function doneTyping ($input) {
-        crawlPage("google", $($input).val());
+    function doneTyping ($defaultSearchEngine, $input) {
+        crawlPage($defaultSearchEngine, $($input).val());
     }
 });

@@ -9,8 +9,8 @@
 
 body{
     margin: 0;
-    background: url("pexels-hristo-fidanov-1252890.jpg");
-    /* This isn't actually a background when we 
+    /* background: url("pexels-hristo-fidanov-1252890.jpg");
+    *  This isn't actually a background when we 
     *  Deploy this.
     *  You might need not care too much about this background.
     *  When we deploy this, the background will be transparent
@@ -24,18 +24,6 @@ body{
 body .window-holder{
     min-height: 100vh;
     background-color: rgba(0,0,0,0.6)
-}
-body .window-holder:before{
-    content: '';
-    position: absolute;
-    top:0;
-    right: 0;
-    left:0;
-    min-height: 100vh;
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-    z-index: -1;
-    background: rgba(0,0,0,0.5);
 }
 body .window-holder .front-header{
     display: flex;
@@ -103,6 +91,17 @@ body .window-holder .search-bar .logo-holder img{
     cursor: pointer;
     border-radius: 5px;
     margin-top: 5px;
+    animation:turnUp 1s linear;
+}
+@keyframes turnUp{
+    from{
+        margin-top:20px;
+        opacity: 0;
+    }
+    to{
+        margin-top:0px;
+        opacity: 1;
+    }
 }
 .sch-rls .web-results .results .result:hover{
     background:#eee;
