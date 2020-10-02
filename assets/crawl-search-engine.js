@@ -1,6 +1,6 @@
 const crawlPage = (engineToUse, keyword) => {
     //keyword = keyword.replace(/\s/g, '+');
-    var url = location.href + getContents.php" + "?kw=" + keyword + '&engine=' + engineToUse;
+    var url = location.href + "getContents.php" + "?kw=" + keyword + '&engine=' + engineToUse;
     url = encodeURI(url);
     console.log(url);
     $.ajax({
