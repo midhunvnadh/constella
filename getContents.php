@@ -2,6 +2,7 @@
 include "./simple_html_dom.php";
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
 if(isset($_GET['engine']) && isset($_GET['kw'])){
 	$engine = $_GET['engine'];
 	$keyword = preg_replace('/\s+/', '+', $_GET['kw']);
@@ -18,8 +19,6 @@ if(isset($_GET['engine']) && isset($_GET['kw'])){
 			bingResults(getPageContents($url));
 			break;
 	}
-
-
 }
 
 function getPageContents($url){
@@ -29,6 +28,7 @@ function getPageContents($url){
 	$domResults->load($page);
 	return $domResults;
 }
+
 function utf8ize( $mixed ) {
     if (is_array($mixed)) {
         foreach ($mixed as $key => $value) {
@@ -39,6 +39,7 @@ function utf8ize( $mixed ) {
     }
     return $mixed;
 }
+
 function googleResults($domResults){
 	$title = $domResults->find('#main div .ZINbbc.xpd.O9g5cc.uUPGi .kCrYT a .zBAuLc'); //Get the search Title
 	$bread = $domResults->find('#main div .ZINbbc .kCrYT a .zBAuLc .BNeawe');          //Get the Breadcrumbs
@@ -47,7 +48,12 @@ function googleResults($domResults){
 	$ajax = array();
 	$push_to_array = array();
 	for($i = 0; $i < sizeof($title);$i++){
-		$push_to_array = array("link" => substr(strval($link[$i]->parent()->href), 7), "title" => strval($title[$i]->plaintext), "bread" => strval($bread[$i]->plaintext), "desc" => strval($desc[$i]->plaintext));		
+		$push_to_array = array(
+			"link" => substr(strval($link[$i]->parent()->href), 7),
+			"title" => strval($title[$i]->plaintext),
+			"bread" => strval($bread[$i]->plaintext),
+			"desc" => strval($desc[$i]->plaintext)
+		);		
 		$ajax[] = $push_to_array;
 		$push_to_array = array();
 	}
@@ -63,7 +69,12 @@ function bingResults($domResults){
 	$ajax = array();
 	$push_to_array = array();
 	for($i = 0; $i < sizeof($title);$i++){
-		$push_to_array = array("link" => substr(strval($link[$i]->href), 0), "title" => strval($title[$i]->plaintext), "bread" => strval($bread[$i]->plaintext), "desc" => strval($desc[$i]->parent()->parent()->plaintext));		
+		$push_to_array = array(
+			"link" => substr(strval($link[$i]->href), 0),
+			"title" => strval($title[$i]->plaintext),
+			"bread" => strval($bread[$i]->plaintext),
+			"desc" => strval($desc[$i]->parent()->parent()->plaintext)
+		);		
 		$ajax[] = $push_to_array;
 		$push_to_array = array();
 	}
